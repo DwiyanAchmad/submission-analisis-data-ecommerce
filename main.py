@@ -11,8 +11,7 @@ st.set_page_config(page_title="E-Commerce Dashboard", layout="wide")
 @st.cache_data
 def load_data():
     df = pd.read_csv("all_data.csv")
-    # Pastikan kolom tanggal bertipe datetime
-    datetime_columns = ["order_purchase_timestamp", "order_delivered_customer_date"]
+    datetime_columns = ["order_purchase_timestamp"] 
     for column in datetime_columns:
         df[column] = pd.to_datetime(df[column])
     return df
